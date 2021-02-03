@@ -25,6 +25,13 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader", options: { importLoaders: 1 } },
+        ],
+      },
     ],
   },
   plugins: [
@@ -33,9 +40,8 @@ module.exports = {
     new ModuleFederationPlugin({
       filename: "remoteEntry.js",
       name: "remote",
-      exposes: { "./NewsList": "./src/NewsList" },
-      // shared: ["react", "react-dom"],
-      shared: ["react", "react-dom", "moment"],
+      exposes: { "./NewsList": "./src/NewsList", "./Modal1": "./src/Modal1" },
+      shared: ["react", "react-dom"],
     }),
   ],
 };

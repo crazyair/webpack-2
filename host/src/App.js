@@ -1,6 +1,7 @@
 import React from "react";
 // const RemoteNewsList = React.lazy(() => import("remote/NewsList"));
 import RemoteNewsList from "remote/NewsList";
+import Modal1 from "./Modal1";
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
       <React.Suspense fallback="Loading NewsList">
         <RemoteNewsList />
       </React.Suspense>
+      <Modal1 />
     </div>
   );
 };

@@ -24,6 +24,13 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader", options: { importLoaders: 1 } },
+        ],
+      },
     ],
   },
   plugins: [
@@ -33,7 +40,7 @@ module.exports = {
       remotes: {
         remote: "remote@http://localhost:8082/remoteEntry.js",
       },
-      // shared: ["react", "react-dom"],
+      shared: ["react", "react-dom"],
     }),
   ],
 };

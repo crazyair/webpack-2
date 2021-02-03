@@ -1,7 +1,5 @@
 import React from "react";
-import moment from "moment";
-
-console.log("1", moment());
+// import moment from "moment";
 
 const NewsList = () => {
   return <div>NewsList</div>;
