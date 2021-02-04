@@ -6,7 +6,7 @@ import Popconfirm1 from "host/Popconfirm1";
 const App = () => {
   return (
     <div>
-      <h2>v3 主 v4 子</h2>
+      <h2>Remote v3 主 v4 子</h2>
 
       <div style={{ paddingTop: 100 }}>
         <Popconfirm title="测试">
