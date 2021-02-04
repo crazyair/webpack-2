@@ -16,6 +16,8 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
     "html-webpack-plugin": "^4.5.1",
+    "less": "^3",
+    "less-loader": "^7",
     "moment-locales-webpack-plugin": "^1.2.0",
     "style-loader": "^2.0.0",
     "webpack": "^5.12.2",

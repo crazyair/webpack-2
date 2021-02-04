@@ -31,14 +31,39 @@ module.exports = {
           { loader: "css-loader", options: { importLoaders: 1 } },
         ],
       },
+      {
+        test: /\.less$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" },
+          {
+            loader: "less-loader",
+            options: {
+              lessOptions: {
+                modifyVars: {
+                  "primary-color": "#1DA57A",
+                  "link-color": "#1DA57A",
+                  "border-radius-base": "2px",
+                  "ant-prefix": "ant-v4",
+                },
+                javascriptEnabled: true,
+              },
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
     new ModuleFederationPlugin({
       name: "host",
+      filename: "remoteEntry.js",
       remotes: {
         remote: "remote@http://localhost:8082/remoteEntry.js",
+      },
+      exposes: {
+        "./Popconfirm1": "./src/Popconfirm1",
       },
       shared: ["react", "react-dom"],
     }),

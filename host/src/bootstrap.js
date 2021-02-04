@@ -1,10 +1,18 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { ConfigProvider } from "antd";
+import { message, Modal, ConfigProvider } from "antd";
 import App from "./App";
+
+import "antd/dist/antd.less";
+
+const prefixCls = "ant-v4";
+
+message.config({ prefixCls: `${prefixCls}-message` });
+Modal.config({ rootPrefixCls: prefixCls });
 
 ReactDom.render(
   <ConfigProvider
+    prefixCls={prefixCls}
     getPopupContainer={() => {
       return document.querySelector("#container");
     }}

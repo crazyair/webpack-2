@@ -1,18 +1,22 @@
 import React from "react";
-// import NewsList from "./NewsList";
-import { Popconfirm } from "antd";
-import Modal1 from "./Modal1";
+import { Popconfirm, Button } from "antd";
+// import Modal1 from "./Modal1";
+import Popconfirm1 from "host/Popconfirm1";
 
 const App = () => {
   return (
     <div>
-      <h2>Modal 测试</h2>
+      <h2>v3 主 v4 子</h2>
 
-      {/* <NewsList /> */}
-      <Modal1 />
-      <Popconfirm title="测试">
-        <a>demo </a>
-      </Popconfirm>
+      <div style={{ paddingTop: 100 }}>
+        <Popconfirm title="测试">
+          <Button type="primary">remote local Popconfirm</Button>
+        </Popconfirm>
+      </div>
+
+      <div style={{ paddingTop: 100 }}>
+        <Popconfirm1 />
+      </div>
     </div>
   );
 };

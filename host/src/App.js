@@ -1,21 +1,21 @@
 import React from "react";
-// const RemoteNewsList = React.lazy(() => import("remote/NewsList"));
-import { Popconfirm } from "antd";
-import RemoteNewsList from "remote/NewsList";
-import Modal1 from "./Modal1";
+import { Popconfirm, Button } from "antd";
+// import Modal1 from "./Modal1";
+import Popconfirm1 from "remote/Popconfirm1";
 
 const App = () => {
   return (
     <div>
-      <h2>远程组件 NewsList</h2>
-      <React.Suspense fallback="Loading NewsList">
-        <RemoteNewsList />
-      </React.Suspense>
-      <Modal1 />
+      <h2>v4 主 v3 子</h2>
+
       <div style={{ paddingTop: 100 }}>
         <Popconfirm title="测试">
-          <a> Popconfirm </a>
+          <Button type="primary">host local Popconfirm</Button>
         </Popconfirm>
+      </div>
+
+      <div style={{ paddingTop: 100 }}>
+        <Popconfirm1 />
       </div>
     </div>
   );

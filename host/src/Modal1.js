@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Button } from "antd";
 
-import "antd/dist/antd.css";
 import RemoteModal1 from "remote/Modal1";
 
 const Modal1 = () => {

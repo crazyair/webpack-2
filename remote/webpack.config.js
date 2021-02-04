@@ -32,6 +32,24 @@ module.exports = {
           { loader: "css-loader", options: { importLoaders: 1 } },
         ],
       },
+      {
+        test: /\.less$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" },
+          {
+            loader: "less-loader",
+            options: {
+              lessOptions: {
+                modifyVars: {
+                  "primary-color": "red",
+                },
+                javascriptEnabled: true,
+              },
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -40,7 +58,14 @@ module.exports = {
     new ModuleFederationPlugin({
       filename: "remoteEntry.js",
       name: "remote",
-      exposes: { "./NewsList": "./src/NewsList", "./Modal1": "./src/Modal1" },
+      remotes: {
+        host: "host@http://localhost:8083/remoteEntry.js",
+      },
+      exposes: {
+        "./NewsList": "./src/NewsList",
+        "./Modal1": "./src/Modal1",
+        "./Popconfirm1": "./src/Popconfirm1",
+      },
       shared: ["react", "react-dom"],
     }),
   ],
