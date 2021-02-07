@@ -3,8 +3,6 @@ import ReactDom from "react-dom";
 import { message, Modal, ConfigProvider } from "antd";
 import App from "./App";
 
-import "antd/dist/antd.less";
-
 const prefixCls = "ant-v4";
 
 message.config({ prefixCls: `${prefixCls}-message` });

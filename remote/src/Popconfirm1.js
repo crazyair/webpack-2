@@ -1,7 +1,7 @@
 import React from "react";
 import { ConfigProvider, Popconfirm, Button } from "antd";
 
-import "antd/dist/antd.less";
+// import "antd/dist/antd.less";
 
 const Popconfirm1 = () => {
   return (

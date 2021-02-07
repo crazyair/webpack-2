@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MomentLocalesPlugin = require("moment-locales-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const ModuleFederationPlugin = webpack.container.ModuleFederationPlugin;
 
@@ -21,21 +22,22 @@ module.exports = {
             loader: "babel-loader",
             options: {
               presets: ["@babel/preset-react"],
+              plugins: [
+                [
+                  "import",
+                  { libraryName: "antd", libraryDirectory: "es", style: true },
+                  "antd",
+                ],
+              ],
             },
           },
         ],
       },
       {
-        test: /\.css$/,
-        use: [
-          { loader: "style-loader" },
-          { loader: "css-loader", options: { importLoaders: 1 } },
-        ],
-      },
-      {
         test: /\.less$/,
         use: [
-          { loader: "style-loader" },
+          { loader: MiniCssExtractPlugin.loader },
+          // { loader: "style-loader" },
           { loader: "css-loader" },
           {
             loader: "less-loader",
@@ -55,6 +57,11 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
     new MomentLocalesPlugin({ localesToKeep: ["zh_cn"] }),
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
+      chunkFilename: "remote-[name].css",
+      // ignoreOrder: true,
+    }),
     new ModuleFederationPlugin({
       filename: "remoteEntry.js",
       name: "remote",

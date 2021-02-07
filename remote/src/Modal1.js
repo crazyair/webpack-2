@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Button } from "antd";
 
-import "antd/dist/antd.less";
-
 const Modal1 = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isModalVisible2, setIsModalVisible2] = useState(false);
