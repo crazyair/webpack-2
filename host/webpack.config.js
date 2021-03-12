@@ -70,7 +70,7 @@ module.exports = {
         remote: "remote@http://localhost:8082/remoteEntry.js",
       },
       exposes: {
-        "./Popconfirm1": "./src/Popconfirm1",
+        "./Modal1": "./src/Modal1",
       },
       shared: ["react", "react-dom"],
     }),

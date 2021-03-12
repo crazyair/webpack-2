@@ -1,23 +1,18 @@
 import React from "react";
-import { Popconfirm, Button } from "antd";
-// import Modal1 from "./Modal1";
-import Popconfirm1 from "host/Popconfirm1";
+import { ConfigProvider } from "antd";
+
+import zhCN from "antd/es/locale/zh_CN";
+
+import HostModal from "host/Modal1";
 
 const App = () => {
   return (
-    <div>
+    <ConfigProvider locale={zhCN}>
       <h2>Remote v3 主 v4 子</h2>
-
       <div style={{ paddingTop: 100 }}>
-        <Popconfirm title="测试">
-          <Button type="primary">remote local Popconfirm</Button>
-        </Popconfirm>
+        <HostModal />
       </div>
-
-      <div style={{ paddingTop: 100 }}>
-        <Popconfirm1 />
-      </div>
-    </div>
+    </ConfigProvider>
   );
 };
 

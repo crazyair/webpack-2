@@ -3,7 +3,6 @@ import { Modal, Button } from "antd";
 
 const Modal1 = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isModalVisible2, setIsModalVisible2] = useState(false);
 
   return (
     <div>
@@ -15,14 +14,7 @@ const Modal1 = () => {
         visible={isModalVisible}
         onCancel={() => setIsModalVisible(false)}
       >
-        <Button type="primary" onClick={() => setIsModalVisible2(true)}>
-          Open Modal
-        </Button>
-        <Modal
-          title="Basic Modal2"
-          visible={isModalVisible2}
-          onCancel={() => setIsModalVisible2(false)}
-        ></Modal>
+        modal
       </Modal>
     </div>
   );

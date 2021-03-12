@@ -69,9 +69,7 @@ module.exports = {
         host: "host@http://localhost:8083/remoteEntry.js",
       },
       exposes: {
-        "./NewsList": "./src/NewsList",
         "./Modal1": "./src/Modal1",
-        "./Popconfirm1": "./src/Popconfirm1",
       },
       shared: ["react", "react-dom"],
     }),
