@@ -1,7 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MomentLocalesPlugin = require("moment-locales-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const ModuleFederationPlugin = webpack.container.ModuleFederationPlugin;
@@ -9,9 +8,9 @@ const ModuleFederationPlugin = webpack.container.ModuleFederationPlugin;
 module.exports = {
   mode: "development",
   entry: "./src/index.js",
-  output: { publicPath: "http://localhost:8082/" },
+  output: { publicPath: "http://localhost:8084/" },
   devtool: false,
-  devServer: { port: 8082 },
+  devServer: { port: 8084 },
   module: {
     rules: [
       {
@@ -44,8 +43,10 @@ module.exports = {
             options: {
               lessOptions: {
                 modifyVars: {
-                  "primary-color": "red",
-                  "ant-prefix": "ant-v4-remote",
+                  "primary-color": "#1DA57A",
+                  "link-color": "#1DA57A",
+                  "border-radius-base": "2px",
+                  "ant-prefix": "ant-v4-host",
                 },
                 javascriptEnabled: true,
               },
@@ -57,29 +58,20 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
-    new MomentLocalesPlugin({ localesToKeep: ["zh_cn"] }),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",
-      chunkFilename: "remote-[name].css",
+      chunkFilename: "main-[name].css",
       // ignoreOrder: true,
     }),
     new ModuleFederationPlugin({
+      name: "main",
       filename: "remoteEntry.js",
-      name: "remote",
       remotes: {
+        remote: "remote@http://localhost:8082/remoteEntry.js",
         host: "host@http://localhost:8083/remoteEntry.js",
       },
-      exposes: {
-        "./Provider": "./src/Provider",
-        "./Demo": "./src/demo",
-      },
-      // shared: ["react", "react-dom"],
-      shared: {
-        react: "^16.4.0",
-        "react-dom": "^16.4.0",
-        antd: "^4.13.1",
-        ["yforms-provider"]: "^1.0.0",
-      },
+      exposes: {},
+      shared: { react: "^16.4.0", "react-dom": "^16.4.0" },
     }),
   ],
 };

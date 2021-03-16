@@ -70,15 +70,15 @@ module.exports = {
         remote: "remote@http://localhost:8082/remoteEntry.js",
       },
       exposes: {
-        "./Modal1": "./src/Modal1",
         "./Provider": "./src/Provider",
+        "./Demo": "./src/demo",
       },
       // shared: ["react", "react-dom"],
       shared: {
         react: "^16.4.0",
         "react-dom": "^16.4.0",
         antd: "^4.13.1",
-        ["yforms-provider"]: "1.0.1",
+        ["yforms-provider"]: "^1.0.1",
       },
     }),
   ],
