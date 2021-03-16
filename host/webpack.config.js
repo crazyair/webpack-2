@@ -46,7 +46,7 @@ module.exports = {
                   "primary-color": "#1DA57A",
                   "link-color": "#1DA57A",
                   "border-radius-base": "2px",
-                  "ant-prefix": "ant-v4",
+                  "ant-prefix": "ant-v4-host",
                 },
                 javascriptEnabled: true,
               },
@@ -71,8 +71,15 @@ module.exports = {
       },
       exposes: {
         "./Modal1": "./src/Modal1",
+        "./Provider": "./src/Provider",
       },
-      shared: ["react", "react-dom"],
+      // shared: ["react", "react-dom"],
+      shared: {
+        react: "^16.4.0",
+        "react-dom": "^16.4.0",
+        antd: "^4.13.1",
+        ["yforms-provider"]: "1.0.1",
+      },
     }),
   ],
 };

@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Modal, Button } from "antd";
-import { ConfigProvider } from "antd";
-import zhCN from "antd/es/locale/zh_CN";
 
 // import RemoteModal1 from "remote/Modal1";
 
@@ -10,7 +8,7 @@ const Modal1 = () => {
 
   return (
     <div>
-      <ConfigProvider locale={zhCN}>
+      <>
         <Button type="primary" onClick={() => setIsModalVisible(true)}>
           host Open Modal
         </Button>
@@ -21,7 +19,7 @@ const Modal1 = () => {
         >
           <RemoteModal1 />
         </Modal>
-      </ConfigProvider>
+      </>
     </div>
   );
 };

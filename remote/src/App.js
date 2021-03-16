@@ -1,18 +1,21 @@
 import React from "react";
-import { ConfigProvider } from "antd";
 
-import zhCN from "antd/es/locale/zh_CN";
+import { Tag } from "yforms-provider";
 
-import HostModal from "host/Modal1";
+// import HostModal from "host/Modal1";
+import HostProvider from "host/Provider";
+import ConfigProvider from "./Provider";
 
 const App = () => {
   return (
-    <ConfigProvider locale={zhCN}>
-      <h2>Remote v3 主 v4 子</h2>
-      <div style={{ paddingTop: 100 }}>
-        <HostModal />
-      </div>
-    </ConfigProvider>
+    <>
+      <ConfigProvider>
+        <HostProvider>
+          <h2>Remote v3 主 v4 子</h2>
+          <Tag>11</Tag>
+        </HostProvider>
+      </ConfigProvider>
+    </>
   );
 };
 

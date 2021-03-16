@@ -45,6 +45,7 @@ module.exports = {
               lessOptions: {
                 modifyVars: {
                   "primary-color": "red",
+                  "ant-prefix": "ant-v4-remote",
                 },
                 javascriptEnabled: true,
               },
@@ -70,8 +71,15 @@ module.exports = {
       },
       exposes: {
         "./Modal1": "./src/Modal1",
+        "./Provider": "./src/Provider",
       },
-      shared: ["react", "react-dom"],
+      // shared: ["react", "react-dom"],
+      shared: {
+        react: "^16.4.0",
+        "react-dom": "^16.4.0",
+        antd: "^4.13.1",
+        ["yforms-provider"]: "1.0.0",
+      },
     }),
   ],
 };
