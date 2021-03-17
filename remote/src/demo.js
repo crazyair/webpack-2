@@ -1,27 +1,32 @@
+import { Modal, Tag as AntdTag } from "antd";
 import React from "react";
-import { Modal } from "antd";
-import { Tag } from "yforms-provider";
 import { Form } from "@ant-design/compatible";
+import { Tag } from "yforms-provider";
 
 const App = () => {
-  return (
+  const dom = (
     <>
-      <Tag>remote demo</Tag>
+      <Tag>tag</Tag>
+      <br />
+      <AntdTag>antd tag</AntdTag>
+      <br />
+      <Form.Item>123</Form.Item>
+    </>
+  );
+  return (
+    <div style={{ margin: 100 }}>
+      {dom}
       <a
         onClick={() => {
           Modal.confirm({
             icon: null,
-            content: (
-              <>
-                <Form.Item>123</Form.Item>
-              </>
-            ),
+            content: dom,
           });
         }}
       >
         remote modal
       </a>
-    </>
+    </div>
   );
 };
 
