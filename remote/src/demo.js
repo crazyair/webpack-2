@@ -10,6 +10,7 @@ const App = () => {
       <a
         onClick={() => {
           Modal.confirm({
+            icon: null,
             content: (
               <>
                 <Form.Item>123</Form.Item>
@@ -18,7 +19,7 @@ const App = () => {
           });
         }}
       >
-        demo
+        remote modal
       </a>
     </>
   );
