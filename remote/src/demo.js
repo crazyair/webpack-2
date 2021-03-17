@@ -10,7 +10,7 @@ const App = () => {
       <br />
       <AntdTag>antd tag</AntdTag>
       <br />
-      <Form.Item>123</Form.Item>
+      <Form.Item>form</Form.Item>
     </>
   );
   return (
