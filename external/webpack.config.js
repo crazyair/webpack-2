@@ -25,8 +25,10 @@ module.exports = {
     react: "React",
     "react-dom": "ReactDOM",
     antd: "antd",
+    lodash: "lodash",
     // "yforms-provider": "var yforms",
     "yforms-provider": "demo",
+    webpackNumbers: "webpackNumbers",
     // "yforms-provider": "yformsProvider",
     // "yforms-provider": {
     //   commonjs2: "demo1",
