@@ -4,7 +4,9 @@
 
 // import * as demo from "yforms-provider";
 
-export * as default from "yforms-provider";
+import { Tag } from "yforms-provider";
+
+export { Tag };
 
 // const demo = "1";
 
