@@ -25,10 +25,11 @@ module.exports = {
     react: "React",
     "react-dom": "ReactDOM",
     antd: "antd",
-    lodash: "lodash",
+    // lodash: "lodash",
     // "yforms-provider": "var yforms",
     "yforms-provider": "demo",
     webpackNumbers: "webpackNumbers",
+    // yzhd: "yzhd",
     // "yforms-provider": "yformsProvider",
     // "yforms-provider": {
     //   commonjs2: "demo1",
@@ -74,6 +75,10 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.css$/,
+        use: [{ loader: "null-loader" }],
       },
     ],
   },

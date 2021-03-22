@@ -32,10 +32,12 @@
   },
   "dependencies": {
     "@ant-design/compatible": "^1.0.8",
-    "@yzh/yzhd": "^2.0.20",
+    "@ant-design/icons": "^4.6.2",
+    "@yzh/yzhd": "^2.0.21-next.1",
     "antd": "^4.14.0",
     "history": "^5.0.0",
     "lodash": "^4.17.21",
+    "query-string": "5",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "yforms-provider": "^1.0.3"
