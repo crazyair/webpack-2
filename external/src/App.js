@@ -1,9 +1,16 @@
 import React from "react";
-
-import * as yzhd from "@yzh/yzhd";
+import { version, Tag, ConfigProvider } from "antd";
+// import * as yzhd from "@yzh/yzhd";
+// console.log("yzhd: ", yzhd);
+console.log("version", version);
 
 const App = () => {
-  return <>12345{yzhd}</>;
+  return (
+    <ConfigProvider prefixCls="ant-v4">
+      12345
+      <Tag>11</Tag>
+    </ConfigProvider>
+  );
 };
 
 export default App;

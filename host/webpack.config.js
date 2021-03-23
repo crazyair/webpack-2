@@ -8,9 +8,21 @@ const ModuleFederationPlugin = webpack.container.ModuleFederationPlugin;
 module.exports = {
   mode: "development",
   entry: "./src/index.js",
-  output: { publicPath: "http://localhost:8083/" },
+  // output: { publicPath: "http://localhost:8083/" },
+  output: {
+    publicPath: "http://localhost:8083/",
+    libraryTarget: "window",
+  },
   devtool: false,
   devServer: { port: 8083 },
+  externals: {
+    // react: "React",
+    // "react-dom": "ReactDOM",
+    // antd: "antd@4.14.0",
+    react: "React",
+    "react-dom": "ReactDOM",
+    antd: "antd@4.14.0",
+  },
   module: {
     rules: [
       {
@@ -21,13 +33,6 @@ module.exports = {
             loader: "babel-loader",
             options: {
               presets: ["@babel/preset-react"],
-              plugins: [
-                [
-                  "import",
-                  { libraryName: "antd", libraryDirectory: "es", style: true },
-                  "antd",
-                ],
-              ],
             },
           },
         ],
@@ -70,16 +75,16 @@ module.exports = {
         remote: "remote@http://localhost:8082/remoteEntry.js",
       },
       exposes: {
-        "./Provider": "./src/Provider",
+        // "./Provider": "./src/Provider",
         "./Demo": "./src/demo",
       },
       // shared: ["react", "react-dom"],
-      shared: {
-        react: "^16.4.0",
-        "react-dom": "^16.4.0",
-        antd: "^4.13.1",
-        ["yforms-provider"]: "^1.0.1",
-      },
+      // shared: {
+      //   react: "^16.4.0",
+      //   "react-dom": "^16.4.0",
+      //   antd: "^4.13.1",
+      //   ["yforms-provider"]: "^1.0.1",
+      // },
     }),
   ],
 };

@@ -2,14 +2,15 @@ import React from "react";
 import { DatePicker, Button } from "antd";
 import { Tag } from "yforms-provider";
 
-import RemoteModal1 from "remote/Modal1";
-import RemoteProvider from "remote/Provider";
+// import RemoteModal1 from "remote/Modal1";
+// import RemoteProvider from "remote/Provider";
 import ConfigProvider from "./Provider";
 
 const App = () => {
   return (
     <ConfigProvider>
-      <RemoteProvider>
+      <Button>11</Button>
+      {/* <RemoteProvider>
         <h2>Host v4 主 v3 子</h2>
         <Tag>Tag</Tag>
         <DatePicker />
@@ -18,7 +19,7 @@ const App = () => {
         <div style={{ paddingTop: 100 }}>
           <RemoteModal1 />
         </div>
-      </RemoteProvider>
+      </RemoteProvider> */}
     </ConfigProvider>
   );
 };

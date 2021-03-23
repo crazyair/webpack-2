@@ -4,7 +4,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   mode: "development",
   entry: "./src/index.js",
-  output: { publicPath: "http://localhost:8085/" },
+  output: {
+    publicPath: "http://localhost:8085/",
+    libraryTarget: "window",
+  },
   devtool: false,
   devServer: { port: 8085 },
   // externals: { antd: "antd" },
@@ -24,11 +27,11 @@ module.exports = {
   externals: {
     react: "React",
     "react-dom": "ReactDOM",
-    antd: "antd",
+    antd: "antd@4.14.0",
     // lodash: "lodash",
     // "yforms-provider": "var yforms",
-    "yforms-provider": "demo",
-    webpackNumbers: "webpackNumbers",
+    // "yforms-provider": "demo",
+    // webpackNumbers: "webpackNumbers",
     // yzhd: "yzhd",
     // "yforms-provider": "yformsProvider",
     // "yforms-provider": {

@@ -22,13 +22,7 @@ module.exports = {
             loader: "babel-loader",
             options: {
               presets: ["@babel/preset-react"],
-              plugins: [
-                [
-                  "import",
-                  { libraryName: "antd", libraryDirectory: "es", style: true },
-                  "antd",
-                ],
-              ],
+              plugins: [],
             },
           },
         ],
@@ -74,12 +68,12 @@ module.exports = {
         "./Demo": "./src/demo",
       },
       // shared: ["react", "react-dom"],
-      shared: {
-        react: "^16.4.0",
-        "react-dom": "^16.4.0",
-        antd: "^4.13.1",
-        ["yforms-provider"]: "^1.0.0",
-      },
+      // shared: {
+      //   react: "^16.4.0",
+      //   "react-dom": "^16.4.0",
+      //   antd: "^4.13.1",
+      //   ["yforms-provider"]: "^1.0.0",
+      // },
     }),
   ],
 };

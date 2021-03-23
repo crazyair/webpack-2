@@ -11,6 +11,14 @@ module.exports = {
   output: { publicPath: "http://localhost:8084/" },
   devtool: false,
   devServer: { port: 8084 },
+  externals: {
+    // react: "React",
+    // "react-dom": "ReactDOM",
+    // antd: "antd@4.14.0",
+    react: "React",
+    "react-dom": "ReactDOM",
+  },
+
   module: {
     rules: [
       {
@@ -21,13 +29,7 @@ module.exports = {
             loader: "babel-loader",
             options: {
               presets: ["@babel/preset-react"],
-              plugins: [
-                [
-                  "import",
-                  { libraryName: "antd", libraryDirectory: "es", style: true },
-                  "antd",
-                ],
-              ],
+              plugins: [],
             },
           },
         ],
@@ -56,6 +58,12 @@ module.exports = {
       },
     ],
   },
+  // resolve: {
+  //   alias: {
+  //     // Needed when library is linked via `npm link` to app
+  //     react: path.resolve("./node_modules/react"),
+  //   },
+  // },
   plugins: [
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
     new MiniCssExtractPlugin({
@@ -67,11 +75,11 @@ module.exports = {
       name: "main",
       filename: "remoteEntry.js",
       remotes: {
-        remote: "remote@http://localhost:8082/remoteEntry.js",
+        // remote: "remote@http://localhost:8082/remoteEntry.js",
         host: "host@http://localhost:8083/remoteEntry.js",
       },
       exposes: {},
-      shared: { react: "^16.4.0", "react-dom": "^16.4.0" },
+      // shared: { react: "^16.4.0", "react-dom": "^16.4.0" },
     }),
   ],
 };
