@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Button } from "antd";
+import { Modal, Button, ConfigProvider } from "antd";
 
 import "antd/dist/antd.css";
 import RemoteModal1 from "remote/Modal1";
@@ -8,7 +8,11 @@ const Modal1 = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
-    <div>
+    <ConfigProvider
+      getPopupContainer={() => {
+        return document.querySelector("#container");
+      }}
+    >
       <Button type="primary" onClick={() => setIsModalVisible(true)}>
         host Open Modal
       </Button>
@@ -19,7 +23,7 @@ const Modal1 = () => {
       >
         <RemoteModal1 />
       </Modal>
-    </div>
+    </ConfigProvider>
   );
 };
 

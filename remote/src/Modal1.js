@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Button } from "antd";
+import { Modal, Button, ConfigProvider } from "antd";
 
 import "antd/dist/antd.css";
 
@@ -8,9 +8,13 @@ const Modal1 = () => {
   const [isModalVisible2, setIsModalVisible2] = useState(false);
 
   return (
-    <div>
+    <ConfigProvider
+      getPopupContainer={() => {
+        return document.querySelector("#container");
+      }}
+    >
       <Button type="primary" onClick={() => setIsModalVisible(true)}>
-        Open Modal
+        remote Open Modal
       </Button>
       <Modal
         title="Basic Modal"
@@ -26,7 +30,7 @@ const Modal1 = () => {
           onCancel={() => setIsModalVisible2(false)}
         ></Modal>
       </Modal>
-    </div>
+    </ConfigProvider>
   );
 };
 
