@@ -1,12 +1,14 @@
 import React from "react";
-import NewsList from "./NewsList";
+// import NewsList from "./NewsList";
+import Modal1 from "./Modal1";
 
 const App = () => {
   return (
     <div>
-      <h2>本地组件 NewsList</h2>
+      <h2>Modal 测试</h2>
 
-      <NewsList />
+      {/* <NewsList /> */}
+      <Modal1 />
     </div>
   );
 };
