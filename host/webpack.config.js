@@ -8,19 +8,43 @@ const ModuleFederationPlugin = webpack.container.ModuleFederationPlugin;
 module.exports = {
   mode: "development",
   entry: "./src/index.js",
-  // output: { publicPath: "http://localhost:8083/" },
   output: {
     publicPath: "http://localhost:8083/",
     libraryTarget: "window",
   },
   devtool: false,
   devServer: { port: 8083 },
-  externals: {
-    react: "React",
-    "react-dom": "ReactDOM",
-    antd: "antd@4.14.0",
-    "yforms-provider": "yforms-provider@1.0.3",
-  },
+  externals: [
+    {
+      react: "React",
+      "react-dom": "ReactDOM",
+      antd: "antd@4.14.0",
+      // "yforms-provider": "yforms-provider@1.0.3",
+    },
+    async ({ context, request, getResolve }) => {
+      if (/^antd/.test(request)) {
+        // if (request === "antd/es/tag") {
+        console.log("request", request);
+        const resolve = getResolve();
+        const resolved = await resolve(context, request);
+        console.log("1111: ", request, context, resolved);
+
+        let str = `${request}`.split("/")[2];
+        var reg = /-(\w)/g;
+        str = str.replace(reg, function ($, $1) {
+          console.log(111, $1);
+          return $1.toUpperCase();
+        });
+        // return `var ${JSON.stringify(resolved)}`;
+        // return `var ${request.replace("antd", "antd@4.14.0")}`;
+        // /Users/crazyair/Code/webpack-2/host/node_modules/antd/es/input/style/index.js
+        // /Users/crazyair/Code/webpack-2/host/node_modules/@ant-design/pro-field/es/components/Select/LightSelect
+        // return `window ${request.replace("antd", "antd@4.14.0")}`;
+        // return `window antd@4.14.0`;
+        return [`window antd@4.14.0`, "Tag"];
+      }
+    },
+  ],
   module: {
     rules: [
       {
@@ -49,7 +73,7 @@ module.exports = {
                   "primary-color": "#1DA57A",
                   "link-color": "#1DA57A",
                   "border-radius-base": "2px",
-                  "ant-prefix": "ant-v4-host",
+                  "ant-prefix": "ant-v4",
                 },
                 javascriptEnabled: true,
               },

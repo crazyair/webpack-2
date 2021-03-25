@@ -1,9 +1,11 @@
 import React from "react";
-import { Modal, Tag as AntdTag, Button } from "antd";
 
+import { version, Modal, Tag as AntdTag, Button } from "antd";
+// import PorForm from "@ant-design/pro-form";
 import { Form } from "@ant-design/compatible";
 import { Tag } from "yforms-provider";
 
+console.log("version", version);
 const dom = (
   <>
     <Tag>tag</Tag>
@@ -17,6 +19,7 @@ const dom = (
 const App = () => {
   return (
     <>
+      {/* <PorForm>11</PorForm> */}
       {dom}
       <a
         onClick={() => {

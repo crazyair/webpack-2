@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@ant-design/compatible": "^1.0.8",
+    "@ant-design/pro-form": "^1.18.4",
     "antd": "^4.14.1",
     "moment": "^2.29.1",
     "react": "^16.14.0",
