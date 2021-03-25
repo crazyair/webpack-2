@@ -16,12 +16,10 @@ module.exports = {
   devtool: false,
   devServer: { port: 8083 },
   externals: {
-    // react: "React",
-    // "react-dom": "ReactDOM",
-    // antd: "antd@4.14.0",
     react: "React",
     "react-dom": "ReactDOM",
     antd: "antd@4.14.0",
+    "yforms-provider": "yforms-provider@1.0.3",
   },
   module: {
     rules: [
@@ -75,7 +73,7 @@ module.exports = {
         remote: "remote@http://localhost:8082/remoteEntry.js",
       },
       exposes: {
-        // "./Provider": "./src/Provider",
+        "./Provider": "./src/Provider",
         "./Demo": "./src/demo",
       },
       // shared: ["react", "react-dom"],

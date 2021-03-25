@@ -1,20 +1,22 @@
-import { Modal, Tag as AntdTag } from "antd";
 import React from "react";
+import { Modal, Tag as AntdTag, Button } from "antd";
+
 import { Form } from "@ant-design/compatible";
 import { Tag } from "yforms-provider";
 
+const dom = (
+  <>
+    <Tag>tag</Tag>
+    <br />
+    <AntdTag>antd tag</AntdTag>
+    <br />
+    <Form.Item>form</Form.Item>
+  </>
+);
+
 const App = () => {
-  const dom = (
-    <>
-      <Tag>tag</Tag>
-      <br />
-      <AntdTag>antd tag</AntdTag>
-      <br />
-      <Form.Item>form</Form.Item>
-    </>
-  );
   return (
-    <div style={{ margin: 100 }}>
+    <>
       {dom}
       <a
         onClick={() => {
@@ -26,7 +28,8 @@ const App = () => {
       >
         remote modal
       </a>
-    </div>
+      <Button type="primary">btn</Button>
+    </>
   );
 };
 

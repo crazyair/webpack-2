@@ -75,7 +75,7 @@ module.exports = {
       name: "main",
       filename: "remoteEntry.js",
       remotes: {
-        // remote: "remote@http://localhost:8082/remoteEntry.js",
+        remote: "remote@http://localhost:8082/remoteEntry.js",
         host: "host@http://localhost:8083/remoteEntry.js",
       },
       exposes: {},

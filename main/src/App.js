@@ -18,21 +18,20 @@
 // export default App;
 
 import React, { useState } from "react";
+import HostProvider from "host/Provider";
+import RemoteDemo from "remote/Demo";
 import HostDemo from "host/Demo";
-
-require("react-dom");
-window.React2 = require("react");
-console.log(window.React1 === window.React2);
-console.log(1, window.React1);
-console.log(2, window.React2);
-
-console.log("host", HostDemo);
-
+import RemoteProvider from "remote/Provider";
 const App = () => {
-  const [Demo, setDemo] = useState("");
   return (
     <>
-      <HostDemo />
+      <RemoteProvider>
+        <HostProvider>
+          <RemoteDemo />
+          <hr />
+          <HostDemo />
+        </HostProvider>
+      </RemoteProvider>
     </>
   );
 };

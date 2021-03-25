@@ -9,9 +9,14 @@ const ModuleFederationPlugin = webpack.container.ModuleFederationPlugin;
 module.exports = {
   mode: "development",
   entry: "./src/index.js",
-  output: { publicPath: "http://localhost:8082/" },
+  output: { publicPath: "http://localhost:8082/", libraryTarget: "window" },
   devtool: false,
   devServer: { port: 8082 },
+  externals: {
+    react: "React",
+    "react-dom": "ReactDOM",
+    antd: "antd@4.14.1",
+  },
   module: {
     rules: [
       {
