@@ -1,13 +1,21 @@
 import React from "react";
-import NewsList from "./NewsList";
+
+import { Tag } from "yforms-provider";
+
+// import HostModal from "host/Modal1";
+import HostProvider from "host/Provider";
+import ConfigProvider from "./Provider";
 
 const App = () => {
   return (
-    <div>
-      <h2>本地组件 NewsList</h2>
-
-      <NewsList />
-    </div>
+    <>
+      <ConfigProvider>
+        <HostProvider>
+          <h2>Remote v3 主 v4 子</h2>
+          <Tag>11</Tag>
+        </HostProvider>
+      </ConfigProvider>
+    </>
   );
 };
 
